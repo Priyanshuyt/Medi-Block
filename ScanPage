@@ -1,0 +1,283 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'scan_page_model.dart';
+export 'scan_page_model.dart';
+
+/// Create a dark-themed mobile screen named "Scan Medicine".
+///
+/// 🔹 Top AppBar:
+/// - Back arrow icon on the left.
+/// - Centered title: "Scan Medicine" in bold white font.
+///
+/// 🔹 Below AppBar:
+/// - Center three circular buttons horizontally spaced evenly:
+///   - Left: Image icon inside a smaller dark circle.
+///   - Center: Camera icon inside a larger dark circle.
+///   - Right: Spiral/scan icon inside a smaller dark circle.
+///
+/// 🔹 Add vertical spacing, then include:
+/// - A white progress bar (indeterminate or partially filled) with a dark
+/// green background and smooth edges.
+/// - Below it, add gray text: "OCR processing batch number and expiry date"
+///
+/// 🔹 Add vertical spacing, then:
+/// - Add a centered rounded button with dark green background.
+///   - Icon: image upload icon on left.
+///   - Text: "Upload Image Instead", white bold text.
+///
+/// 💡 Styling Notes:
+/// - Use padding to center elements.
+/// - Background color: #0A0F0B or near black.
+/// - Buttons should be elevated, with rounded corners.
+/// - Font: Use modern, clean sans-serif.
+class ScanPageWidget extends StatefulWidget {
+  const ScanPageWidget({super.key});
+
+  static String routeName = 'ScanPage';
+  static String routePath = '/scanPage';
+
+  @override
+  State<ScanPageWidget> createState() => _ScanPageWidgetState();
+}
+
+class _ScanPageWidgetState extends State<ScanPageWidget> {
+  late ScanPageModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ScanPageModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: Color(0xFF0A0F0B),
+        appBar: AppBar(
+          backgroundColor: Color(0xFF0A0F0B),
+          automaticallyImplyLeading: false,
+          leading: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            child: FlutterFlowIconButton(
+              borderRadius: 20,
+              buttonSize: 40,
+              icon: Icon(
+                Icons.arrow_back_outlined,
+                color: Colors.white,
+                size: 24,
+              ),
+              onPressed: () {
+                print('IconButton pressed ...');
+              },
+            ),
+          ),
+          title: Text(
+            'Scan Medicine',
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  font: GoogleFonts.interTight(
+                    fontWeight: FontWeight.bold,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                  ),
+                  color: Colors.white,
+                  fontSize: 18,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.bold,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineSmall.fontStyle,
+                ),
+          ),
+          actions: [],
+          centerTitle: true,
+          elevation: 0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Material(
+                      color: Colors.transparent,
+                      elevation: 2,
+                      shape: const CircleBorder(),
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1A1F1B),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Icon(
+                            Icons.image_outlined,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Material(
+                      color: Colors.transparent,
+                      elevation: 3,
+                      shape: const CircleBorder(),
+                      child: Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1A1F1B),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Icon(
+                            Icons.camera_alt_outlined,
+                            color: Colors.white,
+                            size: 36,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Material(
+                      color: Colors.transparent,
+                      elevation: 2,
+                      shape: const CircleBorder(),
+                      child: Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: Color(0xFF1A1F1B),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0, 0),
+                          child: Icon(
+                            Icons.center_focus_strong,
+                            color: Colors.white,
+                            size: 28,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 8,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF2D5A3D),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(-1, 0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 0.6,
+                          height: 8,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'OCR processing batch number and expiry date',
+                      textAlign: TextAlign.center,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: Color(0xFF9E9E9E),
+                            fontSize: 14,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                  ].divide(SizedBox(height: 16)),
+                ),
+                FFButtonWidget(
+                  onPressed: () {
+                    print('Button pressed ...');
+                  },
+                  text: 'Upload Image Instead',
+                  icon: Icon(
+                    Icons.upload_outlined,
+                    size: 20,
+                  ),
+                  options: FFButtonOptions(
+                    width: double.infinity,
+                    height: 50,
+                    padding: EdgeInsetsDirectional.fromSTEB(24, 0, 24, 0),
+                    iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                    iconColor: Colors.white,
+                    color: Color(0xFF2D5A3D),
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          font: GoogleFonts.interTight(
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
+                          color: Colors.white,
+                          fontSize: 16,
+                          letterSpacing: 0.0,
+                          fontWeight: FontWeight.w600,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
+                    elevation: 2,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                    ),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ].divide(SizedBox(height: 32)),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
