@@ -1,0 +1,46 @@
+import firebase_admin
+from firebase_admin import credentials, firestore, storage
+import uuid
+import os
+
+# Load credentials
+cred = credentials.Certificate("serviceAccountKey.json")
+
+# Initialize app (once only)
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred, {
+        'storageBucket': 'your-project-id.appspot.com'
+    })
+
+# Firestore reference
+db = firestore.client()
+
+# Storage reference
+bucket = storage.bucket()
+
+def upload_image_to_firebase(image_path: str) -> str:
+    """
+    Uploads a local image file to Firebase Storage and returns the download URL.
+    """
+    file_name = f"med_reports/{uuid.uuid4()}.jpg"
+    blob = bucket.blob(file_name)
+    blob.upload_from_filename(image_path)
+    blob.make_public()  # Optional: make public
+    return blob.public_url
+
+
+def save_report_to_firestore(user_id: str, hash: str, ipfs_cid: str, image_url: str, is_fake: bool, is_expired: bool):
+    """
+    Saves a medicine scan report to Firestore.
+    """
+    report_ref = db.collection('reports').document()
+    report_ref.set({
+        'user_id': user_id,
+        'report_hash': hash,
+        'ipfs_cid': ipfs_cid,
+        'image_url': image_url,
+        'is_fake': is_fake,
+        'is_expired': is_expired,
+        'timestamp': firestore.SERVER_TIMESTAMP
+    })
+    return report_ref.id
