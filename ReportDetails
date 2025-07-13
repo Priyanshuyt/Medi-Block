@@ -1,0 +1,374 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
+import '/index.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'report_details_model.dart';
+export 'report_details_model.dart';
+
+
+class ReportDetailsWidget extends StatefulWidget {
+  const ReportDetailsWidget({super.key});
+
+  static String routeName = 'ReportDetails';
+  static String routePath = '/reportDetails';
+
+  @override
+  State<ReportDetailsWidget> createState() => _ReportDetailsWidgetState();
+}
+
+class _ReportDetailsWidgetState extends State<ReportDetailsWidget> {
+  late ReportDetailsModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => ReportDetailsModel());
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFF68B648),
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30,
+            buttonSize: 46,
+            icon: Icon(
+              Icons.arrow_back_rounded,
+              color: FlutterFlowTheme.of(context).primaryText,
+              size: 24,
+            ),
+            onPressed: () {
+              print('IconButton pressed ...');
+            },
+          ),
+          title: Text(
+            'Report Details',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  font: GoogleFonts.interTight(
+                    fontWeight: FontWeight.w600,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
+                  fontSize: 20,
+                  letterSpacing: 0.0,
+                  fontWeight: FontWeight.w600,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: Image.network(
+                          'https://images.unsplash.com/photo-1647552631917-99c2207c5aae?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTIzMzQwMDZ8&ixlib=rb-4.1.0&q=80&w=1080',
+                        ).image,
+                      ),
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Report ID: 20240726-001',
+                        style: FlutterFlowTheme.of(context).labelSmall.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.w500,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelSmall
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 12,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelSmall
+                                  .fontStyle,
+                            ),
+                      ),
+                      Text(
+                        'HealthPlus Pharmacy',
+                        style:
+                            FlutterFlowTheme.of(context).headlineSmall.override(
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FontWeight.bold,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .fontStyle,
+                                  ),
+                                  fontSize: 22,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.bold,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .headlineSmall
+                                      .fontStyle,
+                                ),
+                      ),
+                      Text(
+                        'Selling expired medicines',
+                        style: FlutterFlowTheme.of(context).bodyLarge.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                              ),
+                              fontSize: 16,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
+                            ),
+                      ),
+                      Text(
+                        '456, Anytown, USA',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 14,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                      ),
+                    ].divide(SizedBox(height: 8)),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Uploaded Image',
+                        style:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                                  fontSize: 18,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                ),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 180,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.network(
+                              'https://images.unsplash.com/photo-1641561421206-20f6d46a4ae0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NTIzMzQwMDZ8&ixlib=rb-4.1.0&q=80&w=1080',
+                            ).image,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ].divide(SizedBox(height: 12)),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Additional Comments',
+                        style:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                                  fontSize: 18,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                ),
+                      ),
+                      Text(
+                        'I purchased medication from this pharmacy last week and discovered that the expiration date had already passed by 3 months. This is extremely concerning as expired medications can be ineffective or even harmful. The staff seemed unaware of this issue when I brought it to their attention. I believe this pharmacy needs immediate inspection to ensure patient safety and prevent further distribution of expired products.',
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FontWeight.normal,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 14,
+                              letterSpacing: 0.0,
+                              fontWeight: FontWeight.normal,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                              lineHeight: 1.5,
+                            ),
+                      ),
+                    ].divide(SizedBox(height: 12)),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Text(
+                            'Report Status:',
+                            style: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  font: GoogleFonts.interTight(
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .fontStyle,
+                                  ),
+                                  fontSize: 16,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w600,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleMedium
+                                      .fontStyle,
+                                ),
+                          ),
+                          Container(
+                            width: 12,
+                            height: 12,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context).success,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                          Text(
+                            'Under Review',
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
+                                  color: FlutterFlowTheme.of(context).success,
+                                  fontSize: 14,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FontWeight.w500,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                          ),
+                        ].divide(SizedBox(width: 8)),
+                      ),
+                      FFButtonWidget(
+                        onPressed: () async {
+                          context.pushNamed(RepotedSellorWidget.routeName);
+                        },
+                        text: 'Back to Reports',
+                        options: FFButtonOptions(
+                          width: double.infinity,
+                          height: 48,
+                          padding: EdgeInsets.all(8),
+                          iconPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                          color: FlutterFlowTheme.of(context).primary,
+                          textStyle:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
+                                    color: Colors.white,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FontWeight.w600,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
+                          elevation: 0,
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                    ].divide(SizedBox(height: 16)),
+                  ),
+                ]
+                    .divide(SizedBox(height: 20))
+                    .addToStart(SizedBox(height: 16))
+                    .addToEnd(SizedBox(height: 24)),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
